@@ -11,9 +11,18 @@
 
     // Create Dino Objects
     fetch('dino.json')
-    .then(response => response.json())
-    .then(data => console.log(data));
-  
+        .then(response => response.json())
+        .then(data => makeDinoArray(data.Dinos));
+
+    // arrays
+    function makeDinoArray (dinos){
+        dinoArray = []  
+        dinos.forEach((dino) => {
+            newDinoObj = new Dino(dino.species, dino.weight, dino.height, dino.diet, dino.where, dino.when, dino.fact)
+            dinoArray.push(newDinoObj)
+        })
+        return dinoArray
+    }
 
     // Create Human Object
     
